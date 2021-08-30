@@ -28,8 +28,6 @@ class CurrencyTrackerViewController: UIViewController {
     }
     
     func setTabBarImage(imageName: String, title: String) {
-//        let configuration = UIImage.SymbolConfiguration(scale: .large)
-//        let image = UIImage(systemName: imageName, withConfiguration: configuration)
         let image = UIImage(named: imageName)
         tabBarItem = UITabBarItem(title: title, image: image, tag: 0)
     }
