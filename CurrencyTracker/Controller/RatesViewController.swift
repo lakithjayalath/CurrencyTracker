@@ -7,19 +7,35 @@
 
 import UIKit
 
+@available(iOS 14.0, *)
 class RatesViewController: CurrencyTrackerViewController {
+    
+    let ratesMainView = RatesMainView()
+    
+    var rates = [[String]]()
+    
+    override func loadView() {
+        view = ratesMainView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    
     }
     
     func setupUI() {
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         title = "Rates"
         navigationController?.navigationBar.barTintColor = .black
         let attrs = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = attrs
+        
+        setupCollectionView()
+    }
+    
+    func setupCollectionView() {
+        
     }
     
     override func commonInit() {

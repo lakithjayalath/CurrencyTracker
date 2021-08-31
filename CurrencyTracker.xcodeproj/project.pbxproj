@@ -13,6 +13,7 @@
 		5121282326DB9A250064F211 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5121282126DB9A250064F211 /* LaunchScreen.storyboard */; };
 		5121283226DB9F440064F211 /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121283126DB9F440064F211 /* RatesViewController.swift */; };
 		5121283426DB9FB40064F211 /* RatesConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121283326DB9FB40064F211 /* RatesConversionViewController.swift */; };
+		5121286926DE96120064F211 /* RatesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121286826DE96120064F211 /* RatesMainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5121282426DB9A250064F211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5121283126DB9F440064F211 /* RatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
 		5121283326DB9FB40064F211 /* RatesConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesConversionViewController.swift; sourceTree = "<group>"; };
+		5121286826DE96120064F211 /* RatesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesMainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		5121282B26DB9BF70064F211 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5121286826DE96120064F211 /* RatesMainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				5121281B26DB9A220064F211 /* CurrencyTrackerViewController.swift in Sources */,
 				5121283226DB9F440064F211 /* RatesViewController.swift in Sources */,
 				5121283426DB9FB40064F211 /* RatesConversionViewController.swift in Sources */,
+				5121286926DE96120064F211 /* RatesMainView.swift in Sources */,
 				5121281726DB9A220064F211 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
