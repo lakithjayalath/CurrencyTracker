@@ -10,9 +10,8 @@ import UIKit
 @available(iOS 14.0, *)
 class RatesMainView: UIView {
     
-    lazy var ratesCollectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -25,26 +24,25 @@ class RatesMainView: UIView {
     init() {
         super.init(frame: .zero)
         setup()
+        setupSubViews()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError()
     }
     
     func setup() {
-        backgroundColor = .blue
-        setupSubviews()
+        backgroundColor = .white
     }
     
-    func setupSubviews() {
-        addSubview(ratesCollectionView)
+    func setupSubViews() {
+        addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            ratesCollectionView.topAnchor.constraint(equalTo: topAnchor),
-            ratesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            ratesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            ratesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
 }

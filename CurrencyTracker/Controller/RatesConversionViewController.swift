@@ -17,12 +17,12 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     func setupUI() {
         view.backgroundColor = .white
         title = "Convert"
-        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.barTintColor = .systemBlue
         let attrs = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = attrs
     }
     
     override func commonInit() {
-        setTabBarImage(imageName: "currency", title: "Convert")
+        setTabBarImage(imageName: "convert", title: "Convert")
     }
 }

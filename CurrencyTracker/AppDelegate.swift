@@ -26,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ratesConversionNC = UINavigationController(rootViewController: ratesConversionVC)
         
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.barTintColor = .black
+        tabBarController.tabBar.barTintColor = .systemBlue
         tabBarController.tabBar.tintColor = .white
-        tabBarController.tabBar.unselectedItemTintColor = .darkGray
+        tabBarController.tabBar.unselectedItemTintColor = .lightGray
         tabBarController.viewControllers = [ratesNC, ratesConversionNC]
         
         window?.rootViewController = tabBarController
