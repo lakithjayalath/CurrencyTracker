@@ -11,7 +11,16 @@ class CurrencyTrackerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpNavBar()
+    }
+    
+    func setUpNavBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.systemBlue
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

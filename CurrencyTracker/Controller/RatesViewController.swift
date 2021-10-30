@@ -33,9 +33,6 @@ class RatesViewController: CurrencyTrackerViewController {
     func setupUI() {
         view.backgroundColor = .white
         title = "Rates"
-        navigationController?.navigationBar.barTintColor = .systemBlue
-        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = attrs
         
         setupCollectionView()
         populateCollectionView(with: countries)

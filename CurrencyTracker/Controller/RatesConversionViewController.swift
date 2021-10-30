@@ -15,6 +15,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
         stackView.backgroundColor = UIColor.systemGray6
+        stackView.layer.cornerRadius = 1.0
         return stackView
     }()
     
@@ -40,7 +41,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     let arrowButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor.clear
-        let image = UIImage(systemName: "chevron.down.circle.fill")?.withRenderingMode(.alwaysOriginal)
+        let image = UIImage(systemName: "chevron.down.circle.fill")?.withTintColor(UIColor.black, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
         return button
     }()
@@ -81,6 +82,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         textField.textAlignment = .left
         textField.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         textField.borderStyle = .roundedRect
+        textField.layer.borderColor = UIColor.black.cgColor
         return textField
     }()
     
@@ -108,9 +110,6 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     func setupUI() {
         view.backgroundColor = .white
         title = "Convert"
-        navigationController?.navigationBar.barTintColor = .systemBlue
-        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = attrs
         
         setHorizontalStackView()
         setUpButtons()
@@ -118,21 +117,25 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         setUpContainerViews()
         setUpImageViews()
         
-//        self.view.addSubview(amountTF)
     }
     
     func setHorizontalStackView() {
         self.view.addSubview(buttonStackView)
+        
         self.view.addSubview(currencyStackView)
+        
+        self.view.addSubview(amountTF)
+        
+        amountTF.frame = CGRect(x: (self.view.frame.width / 2) - 150, y: (self.view.frame.height / 2) - 100, width: 300, height: 50)
         
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -120).isActive = true
+        buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -150).isActive = true
         [selectCurrencyButton, arrowButton].forEach { buttonStackView.addArrangedSubview($0) }
         
         currencyStackView.translatesAutoresizingMaskIntoConstraints = false
         currencyStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        currencyStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -600).isActive = true
+        currencyStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -500).isActive = true
         [firstCurrencyTF, secondCurrencyTF].forEach { currencyStackView.addArrangedSubview($0) }
         
     }
@@ -149,10 +152,6 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         firstCurrencyTF.widthAnchor.constraint(equalToConstant: 140).isActive = true
         
         secondCurrencyTF.widthAnchor.constraint(equalToConstant: 140.0).isActive = true
-        
-//        amountTF.bottomAnchor.constraint(equalTo: buttonStackView.safeAreaLayoutGuide.topAnchor, constant: -120).isActive = true
-//        amountTF.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        amountTF.widthAnchor.constraint(equalToConstant: 300.0).isActive = true
         
     }
     
