@@ -24,7 +24,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
-        stackView.spacing = 10.0
+        stackView.spacing = 15.0
         stackView.backgroundColor = UIColor.white
         return stackView
     }()
@@ -48,14 +48,14 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     
     let firstCurrencyTF: UITextField = {
         let textField = UITextField()
-        textField.text = "USD"
+        textField.text = "EUR"
         textField.textAlignment = .center
         textField.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         textField.borderStyle = .roundedRect
         textField.leftViewMode = .always
         let flagImageView = UIImageView()
         flagImageView.contentMode = .scaleAspectFit
-        let flag = UIImage(named: "united-states")
+        let flag = UIImage(named: "european-union")
         flagImageView.image = flag
         textField.leftView = flagImageView
         return textField
@@ -78,7 +78,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     
     let amountTF: UITextField = {
         let textField = UITextField()
-        textField.text = "$1.00"
+        textField.text = "€1.00"
         textField.textAlignment = .left
         textField.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         textField.borderStyle = .roundedRect
@@ -101,6 +101,18 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
+    let screenWidth = UIScreen.main.bounds.width - 10
+    let screenHeight = UIScreen.main.bounds.height / 2
+    var selectedFirstRow = 0
+    var selectedSecondRow = 0
+    var currencies: KeyValuePairs = [
+        "AUD" : "1.537906",
+        "NZD" : "1.612609",
+        "QAR" : "4.208506",
+        "USD" : "1.156389",
+        "LKR" : "233.545603"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,15 +155,17 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     func setUpButtons() {
         selectCurrencyButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         selectCurrencyButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        selectCurrencyButton.addTarget(self, action: #selector(popUpPicker), for: .touchUpInside)
         
         arrowButton.heightAnchor.constraint(equalToConstant: 60.5).isActive = true
         arrowButton.widthAnchor.constraint(equalToConstant: 42).isActive = true
+        arrowButton.addTarget(self, action: #selector(popUpPicker), for: .touchUpInside)
     }
     
     func setUpTextFields() {
-        firstCurrencyTF.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        firstCurrencyTF.widthAnchor.constraint(equalToConstant: 180).isActive = true
         
-        secondCurrencyTF.widthAnchor.constraint(equalToConstant: 140.0).isActive = true
+        secondCurrencyTF.widthAnchor.constraint(equalToConstant: 180.0).isActive = true
         
     }
     
@@ -168,7 +182,71 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         rightArrowImageView.centerYAnchor.constraint(equalTo: rightArrowImageContainerView.centerYAnchor).isActive = true
     }
     
+    @objc func popUpPicker(sender: UIButton!) {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        pickerView.selectRow(selectedFirstRow, inComponent: 0, animated: false)
+        pickerView.selectRow(selectedSecondRow, inComponent: 1, animated: false)
+        
+        vc.view.addSubview(pickerView)
+        
+        pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
+        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+        
+        let alert = UIAlertController(title: "Select Currencies", message: "", preferredStyle: .actionSheet)
+        
+        alert.popoverPresentationController?.sourceView = selectCurrencyButton
+        alert.popoverPresentationController?.sourceRect = selectCurrencyButton.bounds
+        
+        alert.setValue(vc, forKey: "contentViewController")
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in
+            self.selectedFirstRow = pickerView.selectedRow(inComponent: 0)
+            self.selectedSecondRow = pickerView.selectedRow(inComponent: 1)
+            
+            let selectedFirst = Array(self.currencies)[self.selectedFirstRow]
+            let selectedSecond = Array(self.currencies)[self.selectedSecondRow]
+            let firstCurrency = selectedFirst.key
+            let secondCurrency = selectedSecond.key
+            
+            self.firstCurrencyTF.text = firstCurrency
+            self.secondCurrencyTF.text = secondCurrency
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func commonInit() {
         setTabBarImage(imageName: "convert", title: "Convert")
     }
+}
+
+extension RatesConversionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return currencies.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
+        label.text = Array(currencies)[row].key
+        label.sizeToFit()
+        return label
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 60
+    }
+    
 }
