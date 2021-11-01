@@ -102,8 +102,13 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         return imageView
     }()
     
+    let convertedAmountLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
     let screenWidth = UIScreen.main.bounds.width - 10
-    let screenHeight = UIScreen.main.bounds.height / 2
+    let screenHeight = (UIScreen.main.bounds.height / 2) - 50
     var selectedFirstRow = 0
     var selectedSecondRow = 0
     var currencies: KeyValuePairs = [
@@ -122,6 +127,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     func setupUI() {
         view.backgroundColor = .white
         title = "Convert"
+        self.hideKeyboardWhenTappedAround()
         
         setHorizontalStackView()
         setUpButtons()
@@ -142,7 +148,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -150).isActive = true
+        buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200).isActive = true
         [selectCurrencyButton, arrowButton].forEach { buttonStackView.addArrangedSubview($0) }
         
         currencyStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -189,6 +195,9 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         
+        firstCurrencyTF.inputView = pickerView
+        secondCurrencyTF.inputView = pickerView
+        
         pickerView.selectRow(selectedFirstRow, inComponent: 0, animated: false)
         pickerView.selectRow(selectedSecondRow, inComponent: 1, animated: false)
         
@@ -197,7 +206,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
         pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
         
-        let alert = UIAlertController(title: "Select Currencies", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Select Currencies", message: nil, preferredStyle: .actionSheet)
         
         alert.popoverPresentationController?.sourceView = selectCurrencyButton
         alert.popoverPresentationController?.sourceRect = selectCurrencyButton.bounds
@@ -225,6 +234,10 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     
     override func commonInit() {
         setTabBarImage(imageName: "convert", title: "Convert")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
 

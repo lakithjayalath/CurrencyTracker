@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		5121283226DB9F440064F211 /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121283126DB9F440064F211 /* RatesViewController.swift */; };
 		5121283426DB9FB40064F211 /* RatesConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121283326DB9FB40064F211 /* RatesConversionViewController.swift */; };
 		5121286926DE96120064F211 /* RatesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121286826DE96120064F211 /* RatesMainView.swift */; };
+		515A2C18272ED07100C67420 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A2C17272ED07100C67420 /* UIViewController.swift */; };
 		72BB946BC6EDF5A930F183DD /* Pods_CurrencyTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA558B140574BC0841FC9B0 /* Pods_CurrencyTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		5121283126DB9F440064F211 /* RatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
 		5121283326DB9FB40064F211 /* RatesConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesConversionViewController.swift; sourceTree = "<group>"; };
 		5121286826DE96120064F211 /* RatesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesMainView.swift; sourceTree = "<group>"; };
+		515A2C17272ED07100C67420 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9E7D4FD5832094AAC3B88D91 /* Pods-CurrencyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyTracker.release.xcconfig"; path = "Target Support Files/Pods-CurrencyTracker/Pods-CurrencyTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 				5121282A26DB9BF00064F211 /* Model */,
 				5121282B26DB9BF70064F211 /* View */,
 				5121282C26DB9C150064F211 /* Controller */,
+				515A2C15272ED04100C67420 /* Utils */,
 				5121282D26DB9CE00064F211 /* Resources */,
 				5121282E26DB9CF20064F211 /* Supporting Files */,
 			);
@@ -141,13 +144,28 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		515A2C15272ED04100C67420 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				515A2C16272ED05100C67420 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		515A2C16272ED05100C67420 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				515A2C17272ED07100C67420 /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		987B97005516579B2AB471F3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				46C5995B2B46A9D77C981D54 /* Pods-CurrencyTracker.debug.xcconfig */,
 				9E7D4FD5832094AAC3B88D91 /* Pods-CurrencyTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -266,6 +284,7 @@
 			files = (
 				5121281B26DB9A220064F211 /* CurrencyTrackerViewController.swift in Sources */,
 				5121283226DB9F440064F211 /* RatesViewController.swift in Sources */,
+				515A2C18272ED07100C67420 /* UIViewController.swift in Sources */,
 				5121283426DB9FB40064F211 /* RatesConversionViewController.swift in Sources */,
 				5121286926DE96120064F211 /* RatesMainView.swift in Sources */,
 				5121281726DB9A220064F211 /* AppDelegate.swift in Sources */,
