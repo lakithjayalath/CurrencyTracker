@@ -58,6 +58,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         let flag = UIImage(named: "european-union")
         flagImageView.image = flag
         textField.leftView = flagImageView
+        
         return textField
     }()
     
@@ -102,9 +103,24 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         return imageView
     }()
     
+    let convertingAmountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "1.00 EUR" + " ="
+        label.font = UIFont.systemFont(ofSize: 22.0, weight: .black)
+        label.textColor = UIColor.lightGray
+        return label
+    }()
+    
     let convertedAmountLabel: UILabel = {
         let label = UILabel()
+        label.text = "233.96931 LKR"
+        label.font = UIFont.systemFont(ofSize: 34.0, weight: .black)
         return label
+    }()
+    
+    let currencyPickerView: UIPickerView = {
+        let pickerView = UIPickerView()
+        return pickerView
     }()
     
     let screenWidth = UIScreen.main.bounds.width - 10
@@ -144,16 +160,24 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         
         self.view.addSubview(amountTF)
         
-        amountTF.frame = CGRect(x: (self.view.frame.width / 2) - 150, y: (self.view.frame.height / 2) - 100, width: 300, height: 50)
+        self.view.addSubview(convertingAmountLabel)
+        
+        self.view.addSubview(convertedAmountLabel)
+        
+        convertingAmountLabel.frame = CGRect(x: (self.view.frame.width) * 0.05, y: (self.view.frame.height / 2), width: 150, height: 30)
+        
+        convertedAmountLabel.frame = CGRect(x: (self.view.frame.width) * 0.05, y: (self.view.frame.height / 2) + 30, width: 300, height: 40)
+        
+        amountTF.frame = CGRect(x: (self.view.frame.width / 2) - 150, y: (self.view.frame.height / 2) - 120, width: 300, height: 50)
         
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200).isActive = true
+        buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -180).isActive = true
         [selectCurrencyButton, arrowButton].forEach { buttonStackView.addArrangedSubview($0) }
         
         currencyStackView.translatesAutoresizingMaskIntoConstraints = false
         currencyStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        currencyStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -500).isActive = true
+        currencyStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -520).isActive = true
         [firstCurrencyTF, secondCurrencyTF].forEach { currencyStackView.addArrangedSubview($0) }
         
     }
@@ -173,6 +197,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         
         secondCurrencyTF.widthAnchor.constraint(equalToConstant: 180.0).isActive = true
         
+        
     }
     
     func setUpContainerViews() {
@@ -191,12 +216,9 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     @objc func popUpPicker(sender: UIButton!) {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
-        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        lazy var pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         pickerView.delegate = self
         pickerView.dataSource = self
-        
-        firstCurrencyTF.inputView = pickerView
-        secondCurrencyTF.inputView = pickerView
         
         pickerView.selectRow(selectedFirstRow, inComponent: 0, animated: false)
         pickerView.selectRow(selectedSecondRow, inComponent: 1, animated: false)
@@ -229,7 +251,14 @@ class RatesConversionViewController: CurrencyTrackerViewController {
             self.secondCurrencyTF.text = secondCurrency
         }))
         
+        firstCurrencyTF.inputView = pickerView
+        secondCurrencyTF.inputView = pickerView
+        
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setUpCurrencyPopUpView() {
+        
     }
     
     override func commonInit() {
