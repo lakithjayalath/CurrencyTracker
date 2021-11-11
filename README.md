@@ -2,7 +2,7 @@
 
 **Screenshots**
 
-![plot](Users/lakithjayalath/Documents/Personal Project Assets/Rates Screen.png)
+![plot](/Users/lakithjayalath/Documents/Personal Project Assets/Rates Screen.png)
 
 **Description**
 
