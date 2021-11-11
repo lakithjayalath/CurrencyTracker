@@ -2,9 +2,9 @@
 
 **Screenshots**
 
-![](Rates Screen.png)
+![ScreenShot](Rates Screen.png)
 
-![](Convert Screen.png)
+![ScreenShot](Convert Screen.png)
 
 **Description**
 
