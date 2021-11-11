@@ -77,6 +77,11 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         return textField
     }()
     
+    let firstCurrencyView: UIView = {
+        let uiView = UIView()
+        return uiView
+    }()
+    
     let amountTF: UITextField = {
         let textField = UITextField()
         textField.text = "€1.00"
@@ -118,13 +123,10 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         return label
     }()
     
-    let currencyPickerView: UIPickerView = {
-        let pickerView = UIPickerView()
-        return pickerView
-    }()
+    var currencyPickerView: UIPickerView!
     
     let screenWidth = UIScreen.main.bounds.width - 10
-    let screenHeight = (UIScreen.main.bounds.height / 2) - 50
+    let screenHeight = (UIScreen.main.bounds.height / 2) - 140
     var selectedFirstRow = 0
     var selectedSecondRow = 0
     var currencies: KeyValuePairs = [
@@ -150,7 +152,6 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         setUpTextFields()
         setUpContainerViews()
         setUpImageViews()
-        
     }
     
     func setHorizontalStackView() {
@@ -172,7 +173,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -180).isActive = true
+        buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -140).isActive = true
         [selectCurrencyButton, arrowButton].forEach { buttonStackView.addArrangedSubview($0) }
         
         currencyStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -193,10 +194,13 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     }
     
     func setUpTextFields() {
-        firstCurrencyTF.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        firstCurrencyTF.widthAnchor.constraint(equalToConstant: 170.0).isActive = true
+        firstCurrencyTF.delegate = self
+        firstCurrencyTF.addTarget(self, action: #selector(popUpPicker), for: .touchDown)
         
-        secondCurrencyTF.widthAnchor.constraint(equalToConstant: 180.0).isActive = true
-        
+        secondCurrencyTF.widthAnchor.constraint(equalToConstant: 170.0).isActive = true
+        secondCurrencyTF.delegate = self
+        secondCurrencyTF.addTarget(self, action: #selector(popUpPicker), for: .touchDown)
         
     }
     
@@ -212,6 +216,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         rightArrowImageView.centerXAnchor.constraint(equalTo: rightArrowImageContainerView.centerXAnchor).isActive = true
         rightArrowImageView.centerYAnchor.constraint(equalTo: rightArrowImageContainerView.centerYAnchor).isActive = true
     }
+    
     
     @objc func popUpPicker(sender: UIButton!) {
         let vc = UIViewController()
@@ -251,8 +256,8 @@ class RatesConversionViewController: CurrencyTrackerViewController {
             self.secondCurrencyTF.text = secondCurrency
         }))
         
-        firstCurrencyTF.inputView = pickerView
-        secondCurrencyTF.inputView = pickerView
+//        firstCurrencyTF.inputView = pickerView
+//        secondCurrencyTF.inputView = pickerView
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -268,6 +273,14 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+}
+
+extension RatesConversionViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
+    }
+    
 }
 
 extension RatesConversionViewController: UIPickerViewDelegate, UIPickerViewDataSource {

@@ -15,6 +15,7 @@
 		5121283426DB9FB40064F211 /* RatesConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121283326DB9FB40064F211 /* RatesConversionViewController.swift */; };
 		5121286926DE96120064F211 /* RatesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121286826DE96120064F211 /* RatesMainView.swift */; };
 		515A2C18272ED07100C67420 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A2C17272ED07100C67420 /* UIViewController.swift */; };
+		515A2C7C273528A400C67420 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A2C7B273528A300C67420 /* PickerTextField.swift */; };
 		72BB946BC6EDF5A930F183DD /* Pods_CurrencyTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA558B140574BC0841FC9B0 /* Pods_CurrencyTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		5121283326DB9FB40064F211 /* RatesConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesConversionViewController.swift; sourceTree = "<group>"; };
 		5121286826DE96120064F211 /* RatesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesMainView.swift; sourceTree = "<group>"; };
 		515A2C17272ED07100C67420 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		515A2C7B273528A300C67420 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		9E7D4FD5832094AAC3B88D91 /* Pods-CurrencyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyTracker.release.xcconfig"; path = "Target Support Files/Pods-CurrencyTracker/Pods-CurrencyTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				5121286826DE96120064F211 /* RatesMainView.swift */,
+				515A2C7B273528A300C67420 /* PickerTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				5121283226DB9F440064F211 /* RatesViewController.swift in Sources */,
 				515A2C18272ED07100C67420 /* UIViewController.swift in Sources */,
 				5121283426DB9FB40064F211 /* RatesConversionViewController.swift in Sources */,
+				515A2C7C273528A400C67420 /* PickerTextField.swift in Sources */,
 				5121286926DE96120064F211 /* RatesMainView.swift in Sources */,
 				5121281726DB9A220064F211 /* AppDelegate.swift in Sources */,
 			);
