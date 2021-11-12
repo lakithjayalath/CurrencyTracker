@@ -2,9 +2,7 @@
 
 **Screenshots**
 
-![](Screenshots/Rates%20Screen.png)
-
-![](Screenshots/Convert%20Screen.png)
+<img src="Screenshots/Rates%20Screen.png)" width="100">
 
 ![](Screenshots/Rates.gif)    ![](Screenshots/Convert.gif)   
 
