@@ -2,9 +2,9 @@
 
 **Screenshots**
 
-<img src="Screenshots/rates-screen.png)" width="100">
+<img src="Screenshots/rates-screen.png" width="100">
 
-<img src="Screenshots/convert-screen.png)" width="100">
+<img src="Screenshots/convert-screen.png" width="100">
 
 ![](Screenshots/rates.gif)    ![](Screenshots/convert.gif)   
 
