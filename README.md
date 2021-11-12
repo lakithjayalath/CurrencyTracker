@@ -6,7 +6,7 @@
 
 ![](Screenshots/Convert%20Screen.png)
 
-![](Rates.gif)    ![](Convert.gif)   
+![](Screenshots/Rates.gif)    ![](Screenshots/Convert.gif)   
 
 **Description**
 
