@@ -6,6 +6,8 @@
 
 ![](Screenshots/Convert%20Screen.png)
 
+![](Rates.gif)    ![](Convert.gif)   
+
 **Description**
 
 * A simple app to get daily exchange rates and perform currency conversions
