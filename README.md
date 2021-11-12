@@ -2,7 +2,7 @@
 
 **Screenshots**
 
-![](screenshots/Rates%20Screen.png)
+![](Screenshots/Rates%20Screen.png)
 
 **Description**
 
