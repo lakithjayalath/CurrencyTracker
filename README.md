@@ -1,5 +1,9 @@
 # CurrencyTracker
 
+**Screenshots**
+
+![](screenshots/Rates%20Screen.png)
+
 **Description**
 
 * A simple app to get daily exchange rates and perform currency conversions
