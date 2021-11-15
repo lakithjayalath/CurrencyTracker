@@ -20,6 +20,7 @@ class RatesViewController: CurrencyTrackerViewController {
     
     override func loadView() {
         view = ratesMainView
+        self.view.backgroundColor = UIColor.white
     }
     
     override func viewDidLoad() {

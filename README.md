@@ -1,5 +1,11 @@
 # CurrencyTracker
 
+**Screenshots**
+
+<img src="Screenshots/convert-screen.png" width="500">        <img src="Screenshots/rates-screen.png" width="500">        <img src="Screenshots/rates-screen-picker.png" width="500">     
+
+![](Screenshots/rates.gif)    ![](Screenshots/convert.gif)   
+
 **Description**
 
 * A simple app to get daily exchange rates and perform currency conversions
