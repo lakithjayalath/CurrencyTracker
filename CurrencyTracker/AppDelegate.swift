@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.tabBar.barTintColor = .systemBlue
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.unselectedItemTintColor = .lightGray
+        tabBarController.tabBar.isTranslucent = false
         tabBarController.viewControllers = [ratesNC, ratesConversionNC]
         
         window?.rootViewController = tabBarController

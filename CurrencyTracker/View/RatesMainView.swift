@@ -11,6 +11,7 @@ import UIKit
 class RatesMainView: UIView {
     
     lazy var collectionView: UICollectionView = {
+        
         let configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         

@@ -31,7 +31,7 @@ class RatesViewController: CurrencyTrackerViewController {
     }
     
     func setupUI() {
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         title = "Rates"
         
         setupCollectionView()

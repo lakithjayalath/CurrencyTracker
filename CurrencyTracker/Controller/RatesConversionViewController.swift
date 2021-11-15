@@ -58,7 +58,11 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         let flag = UIImage(named: "european-union")
         flagImageView.image = flag
         textField.leftView = flagImageView
-        
+        textField.backgroundColor = UIColor.white
+        textField.textColor = UIColor.black
+        textField.layer.borderWidth = 0.5
+        textField.borderStyle = .roundedRect
+        textField.layer.borderColor = UIColor.black.cgColor
         return textField
     }()
     
@@ -74,6 +78,11 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         let flag = UIImage(named: "sri-lanka")
         flagImageView.image = flag
         textField.leftView = flagImageView
+        textField.backgroundColor = UIColor.white
+        textField.textColor = UIColor.black
+        textField.borderStyle = .roundedRect
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.black.cgColor
         return textField
     }()
     
@@ -88,7 +97,10 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         textField.textAlignment = .left
         textField.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         textField.borderStyle = .roundedRect
+        textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.black.cgColor
+        textField.backgroundColor = UIColor.white
+        textField.textColor = UIColor.black
         return textField
     }()
     
@@ -120,6 +132,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         let label = UILabel()
         label.text = "233.96931 LKR"
         label.font = UIFont.systemFont(ofSize: 34.0, weight: .black)
+        label.textColor = UIColor.black
         return label
     }()
     
@@ -143,7 +156,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
     }
 
     func setupUI() {
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         title = "Convert"
         self.hideKeyboardWhenTappedAround()
         
@@ -152,6 +165,8 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         setUpTextFields()
         setUpContainerViews()
         setUpImageViews()
+        
+        buttonStackView.isHidden = true
     }
     
     func setHorizontalStackView() {
@@ -165,11 +180,11 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         
         self.view.addSubview(convertedAmountLabel)
         
-        convertingAmountLabel.frame = CGRect(x: (self.view.frame.width) * 0.05, y: (self.view.frame.height / 2), width: 150, height: 30)
+        convertingAmountLabel.frame = CGRect(x: (self.view.frame.width) * 0.05, y: (self.view.frame.height) * 0.18, width: 150, height: 30)
         
-        convertedAmountLabel.frame = CGRect(x: (self.view.frame.width) * 0.05, y: (self.view.frame.height / 2) + 30, width: 300, height: 40)
+        convertedAmountLabel.frame = CGRect(x: (self.view.frame.width) * 0.05, y: (self.view.frame.height) * 0.22, width: 300, height: 40)
         
-        amountTF.frame = CGRect(x: (self.view.frame.width / 2) - 150, y: (self.view.frame.height / 2) - 120, width: 300, height: 50)
+        amountTF.frame = CGRect(x: (self.view.frame.width / 2) - 150, y: (self.view.frame.height) * 0.38, width: 300, height: 50)
         
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -178,7 +193,7 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         
         currencyStackView.translatesAutoresizingMaskIntoConstraints = false
         currencyStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        currencyStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -520).isActive = true
+        currencyStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -180).isActive = true
         [firstCurrencyTF, secondCurrencyTF].forEach { currencyStackView.addArrangedSubview($0) }
         
     }
