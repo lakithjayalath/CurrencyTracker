@@ -149,6 +149,13 @@ class RatesConversionViewController: CurrencyTrackerViewController {
         "USD" : "1.156389",
         "LKR" : "231.13812"
     ]
+    var currencyData: [String: Double] = [
+        "AUD" : 1.537906,
+        "NZD" : 1.612609,
+        "QAR" : 4.208506,
+        "USD" : 1.156389,
+        "LKR" : 231.13812
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()

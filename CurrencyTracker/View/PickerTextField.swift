@@ -19,7 +19,8 @@ class PickerTextField: UITextField {
     var selectedSecondRow = 0
     var VC = UIViewController()
     
-    public var pickerData = [:] as KeyValuePairs<String, String>
+    
+    public var pickerData = [:] as KeyValuePairs<String, Double>
     public var displayNameHandler: PickerTextFieldDisplayNameHandler?
     public var itemSelectionHandler: PickerTextFieldItemSelectionHandler?
     

@@ -14,8 +14,13 @@
 		5121283226DB9F440064F211 /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121283126DB9F440064F211 /* RatesViewController.swift */; };
 		5121283426DB9FB40064F211 /* RatesConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121283326DB9FB40064F211 /* RatesConversionViewController.swift */; };
 		5121286926DE96120064F211 /* RatesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121286826DE96120064F211 /* RatesMainView.swift */; };
+		51274E192750312500DC77FD /* RateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51274E182750312500DC77FD /* RateService.swift */; };
+		51274E1B2750370E00DC77FD /* RateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51274E1A2750370E00DC77FD /* RateManager.swift */; };
 		515A2C18272ED07100C67420 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A2C17272ED07100C67420 /* UIViewController.swift */; };
 		515A2C7C273528A400C67420 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A2C7B273528A300C67420 /* PickerTextField.swift */; };
+		51BC8D842746FDAC00F63D28 /* LatestRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC8D832746FDAC00F63D28 /* LatestRates.swift */; };
+		51BC8D89274702C600F63D28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC8D88274702C600F63D28 /* NetworkManager.swift */; };
+		51BC8D8C27470E8300F63D28 /* CTExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC8D8B27470E8300F63D28 /* CTExchangeRateService.swift */; };
 		72BB946BC6EDF5A930F183DD /* Pods_CurrencyTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA558B140574BC0841FC9B0 /* Pods_CurrencyTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +36,13 @@
 		5121283126DB9F440064F211 /* RatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
 		5121283326DB9FB40064F211 /* RatesConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesConversionViewController.swift; sourceTree = "<group>"; };
 		5121286826DE96120064F211 /* RatesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesMainView.swift; sourceTree = "<group>"; };
+		51274E182750312500DC77FD /* RateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateService.swift; sourceTree = "<group>"; };
+		51274E1A2750370E00DC77FD /* RateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateManager.swift; sourceTree = "<group>"; };
 		515A2C17272ED07100C67420 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		515A2C7B273528A300C67420 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
+		51BC8D832746FDAC00F63D28 /* LatestRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestRates.swift; sourceTree = "<group>"; };
+		51BC8D88274702C600F63D28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		51BC8D8B27470E8300F63D28 /* CTExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTExchangeRateService.swift; sourceTree = "<group>"; };
 		9E7D4FD5832094AAC3B88D91 /* Pods-CurrencyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyTracker.release.xcconfig"; path = "Target Support Files/Pods-CurrencyTracker/Pods-CurrencyTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +101,7 @@
 		5121282A26DB9BF00064F211 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				51BC8D832746FDAC00F63D28 /* LatestRates.swift */,
 				5121282F26DB9D170064F211 /* Network */,
 			);
 			path = Model;
@@ -135,21 +146,16 @@
 		5121282F26DB9D170064F211 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				5121283026DB9D230064F211 /* Services */,
+				51BC8D8A27470E1B00F63D28 /* Remote */,
+				51274E182750312500DC77FD /* RateService.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		5121283026DB9D230064F211 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		515A2C15272ED04100C67420 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				51BC8D852747027400F63D28 /* Managers */,
 				515A2C16272ED05100C67420 /* Extensions */,
 			);
 			path = Utils;
@@ -161,6 +167,23 @@
 				515A2C17272ED07100C67420 /* UIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		51BC8D852747027400F63D28 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				51BC8D88274702C600F63D28 /* NetworkManager.swift */,
+				51274E1A2750370E00DC77FD /* RateManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		51BC8D8A27470E1B00F63D28 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				51BC8D8B27470E8300F63D28 /* CTExchangeRateService.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		987B97005516579B2AB471F3 /* Pods */ = {
@@ -285,9 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51BC8D89274702C600F63D28 /* NetworkManager.swift in Sources */,
+				51274E192750312500DC77FD /* RateService.swift in Sources */,
+				51BC8D842746FDAC00F63D28 /* LatestRates.swift in Sources */,
 				5121281B26DB9A220064F211 /* CurrencyTrackerViewController.swift in Sources */,
 				5121283226DB9F440064F211 /* RatesViewController.swift in Sources */,
 				515A2C18272ED07100C67420 /* UIViewController.swift in Sources */,
+				51BC8D8C27470E8300F63D28 /* CTExchangeRateService.swift in Sources */,
+				51274E1B2750370E00DC77FD /* RateManager.swift in Sources */,
 				5121283426DB9FB40064F211 /* RatesConversionViewController.swift in Sources */,
 				515A2C7C273528A400C67420 /* PickerTextField.swift in Sources */,
 				5121286926DE96120064F211 /* RatesMainView.swift in Sources */,
