@@ -16,6 +16,7 @@
 		5121286926DE96120064F211 /* RatesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5121286826DE96120064F211 /* RatesMainView.swift */; };
 		51274E192750312500DC77FD /* RateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51274E182750312500DC77FD /* RateService.swift */; };
 		51274E1B2750370E00DC77FD /* RateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51274E1A2750370E00DC77FD /* RateManager.swift */; };
+		513DBECD2941D0BD0008D60E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 513DBECC2941D0BD0008D60E /* Colors.xcassets */; };
 		515A2C18272ED07100C67420 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A2C17272ED07100C67420 /* UIViewController.swift */; };
 		515A2C7C273528A400C67420 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A2C7B273528A300C67420 /* PickerTextField.swift */; };
 		51BC8D842746FDAC00F63D28 /* LatestRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC8D832746FDAC00F63D28 /* LatestRates.swift */; };
@@ -38,6 +39,7 @@
 		5121286826DE96120064F211 /* RatesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesMainView.swift; sourceTree = "<group>"; };
 		51274E182750312500DC77FD /* RateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateService.swift; sourceTree = "<group>"; };
 		51274E1A2750370E00DC77FD /* RateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateManager.swift; sourceTree = "<group>"; };
+		513DBECC2941D0BD0008D60E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		515A2C17272ED07100C67420 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		515A2C7B273528A300C67420 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		51BC8D832746FDAC00F63D28 /* LatestRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestRates.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				5121281F26DB9A250064F211 /* Assets.xcassets */,
 				5121282126DB9A250064F211 /* LaunchScreen.storyboard */,
+				513DBECC2941D0BD0008D60E /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				513DBECD2941D0BD0008D60E /* Colors.xcassets in Resources */,
 				5121282326DB9A250064F211 /* LaunchScreen.storyboard in Resources */,
 				5121282026DB9A250064F211 /* Assets.xcassets in Resources */,
 			);
