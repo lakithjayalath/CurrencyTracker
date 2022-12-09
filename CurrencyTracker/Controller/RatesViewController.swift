@@ -37,6 +37,7 @@ class RatesViewController: CurrencyTrackerViewController {
         
         setupCollectionView()
         populateCollectionView(with: countries)
+        print("HELLO")
     }
     
     func setupCollectionView() {
