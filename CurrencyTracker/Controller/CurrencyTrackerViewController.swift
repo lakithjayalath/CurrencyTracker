@@ -13,6 +13,7 @@ class CurrencyTrackerViewController: UIViewController {
         super.viewDidLoad()
         setUpNavBar()
         view.backgroundColor = UIColor.white
+        print("THREE")
     }
     
     func setUpNavBar() {
@@ -23,6 +24,7 @@ class CurrencyTrackerViewController: UIViewController {
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        print("THREE")
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
