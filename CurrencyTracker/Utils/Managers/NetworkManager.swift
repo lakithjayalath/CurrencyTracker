@@ -14,7 +14,7 @@ class NetworkManager {
     
     struct BASE_URL {
         
-        static let EXCHANGE_RATE_BASE_URL = "https://api.exchangerate.host/"
+//        static let EXCHANGE_RATE_BASE_URL = "https://api.exchangerate.host/"
         
     }
     
