@@ -26,9 +26,9 @@ class RatesViewController: CurrencyTrackerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        AF.request("https://api.exchangerate.host/latest").response { response in
-//            debugPrint("response1234", response)
-//        }
+        AF.request("https://api.exchangerate.host/latest").response { response in
+            debugPrint("response1234", response)
+        }
     }
     
     func setupUI() {
